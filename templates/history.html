@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flask</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Өвчин таамаглах загвар</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{url_for('static', filename='prevention.ico')}}"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='history.css')}}" />
+
+ 
+    </style>
+  </head>
+  <body>
+    <div id="stars"></div>
+    <nav>
+
+      <div id="logo">
+     <h4>Өвчин таамаглах загвар</h4>
+    </div>
+      <ul>
+        
+        <li><a href="/"
+          id="home"
+        >
+          БУЦАХ
+        </a></li>
+       </ul>
+    </nav>
+    <br>
+    <table class="table" style="background-color:#fff; color: #000">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Өвчин</th>
+          <th scope="col">Тайлбар</th>
+          <th scope="col">Сэргийлэх</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        {% for text in all_text %}
+        <tr>
+          <td>{{ text[0] }}</td>
+        <td>{{ text[1] }}</td>
+        <td>{{ text[2] }}</td>
+        <td>{{ text[3] }}</td>
+        </tr>
+        {% endfor %}
+
+
+      
+       
+       
+      </tbody>
+    </table>
+     
+    </ul>
+  </body>
+</html>

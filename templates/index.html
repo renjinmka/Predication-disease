@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Өвчин таамаглах загвар</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{url_for('static', filename='prevention.ico')}}"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  
+  <body>
+    <div id="stars"></div>
+    <nav class="clearfix">
+
+      <div id="logo">
+     <h4>Өвчин таамаглах загвар</h4>
+    </div>
+      <ul>
+        <li><button
+          type="button"
+          class="mybtn btn-danger"
+          data-toggle="modal"
+          data-target="#result"
+        >
+          Үр дүн харах
+        </button></li>
+        <li><a href="/history" class="mybtn btn-success"
+        >
+          Таамагласан түүх
+        </a></li>
+        <li><a href="#">Contact</a></li>
+       </ul>
+    </nav>
+    <div class="container">
+      <form action="{{url_for('predict')}}" method="POST">
+        <div class="panel panel-default" style="max-width: 100rem">
+          <div class="panel-heading">Илэрч буй шинж тэмдгээ сонгоно уу !</div>
+          <div class="panel-body">
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 1</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_1"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Загатнах" value="1">Загатнах</option>
+                <option data-tokens="Арьсны тууралт" value="3">
+                  Арьсны тууралт
+                </option>
+                <option data-tokens="Тасралтгүй найтаах" value="4">
+                  Тасралтгүй найтаах
+                </option>
+                <option data-tokens="Чичрэх" value="5">Чичрэх</option>
+                <option data-tokens="Ходоодны өвдөлт" value="5">
+                  Ходоодны өвдөлт
+                </option>
+                <option data-tokens="Хүчиллэг" value="3">Хүчиллэг</option>
+                <option data-tokens="Бөөлжих" value="5">Бөөлжих</option>
+                <option data-tokens="Ходоодны хямрал" value="5">
+                  Ходоодны хямрал
+                </option>
+                <option data-tokens="Булчин сулрах" value="3">
+                  Булчин сулрах
+                </option>
+                <option data-tokens="Хоолойнд толбо" value="6">
+                  Хоолойнд толбо
+                </option>
+                <option data-tokens="Ядаргаа" value="4">Ядаргаа</option>
+                <option data-tokens="Турах" value="3">Турах</option>
+                <option data-tokens="Нүдний хонхорхой" value="3">
+                  Нүдний хонхорхой
+                </option>
+                <option data-tokens="Ханиалгах" value="4">Ханиалгах</option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Нуруу өвдөх" value="3">Нуруу өвдөх</option>
+                <option data-tokens="Мөчний сул дорой байдал" value="7">
+                  Мөчний сул дорой байдал
+                </option>
+                <option data-tokens="Жихүүдэс хүрэх" value="3">
+                  Жихүүдэс хүрэх
+                </option>
+                <option data-tokens="Үений өвдөлт" value="3">
+                  Үений өвдөлт
+                </option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Өтгөн хаталт" value="4">
+                  Өтгөн хаталт
+                </option>
+                <option
+                  data-tokens="Гэдэсний хөдөлгөөний үеийн өвдөлт"
+                  value="5"
+                >
+                  Гэдэсний хөдөлгөөний үеийн өвдөлт
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Базлалт" value="4">Базлалт</option>
+                <option data-tokens="Жин нэмэх" value="3">Жин нэмэх</option>
+                <option data-tokens="Сэтгэл санааны өөрчлөлт" value="3">
+                  Сэтгэл санааны өөрчлөлт
+                </option>
+                <option data-tokens="Хүзүү өвдөх" value="5">Хүзүү өвдөх</option>
+                <option data-tokens="Булчин сулрах" value="2">
+                  Булчин сулрах
+                </option>
+                <option data-tokens="Хүзүү хөших" value="4">Хүзүү хөших</option>
+                <option data-tokens="Идээт батга" value="2">Идээт батга</option>
+                <option data-tokens="Шатаж буй шээс ялгаруулах" value="6">
+                  Шатаж буй шээс ялгаруулах
+                </option>
+                <option data-tokens="Давсагны тааламжгүй байдал" value="4">
+                  Давсагны тааламжгүй байдал
+                </option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 2</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_2"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Арьсны тууралт" value="3">
+                  Арьсны тууралт
+                </option>
+                <option data-tokens="Чичрэх" value="5">Чичрэх</option>
+                <option data-tokens="Жихүүдэс хүрэх" value="3">
+                  Жихүүдэс хүрэх
+                </option>
+                <option data-tokens="Хүчиллэг" value="3">Хүчиллэг</option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Бөөлжих" value="5">Бөөлжих</option>
+                <option data-tokens="Ходоодны өвдөлт" value="5">
+                  Ходоодны өвдөлт
+                </option>
+                <option data-tokens="Ходоодны хямрал" value="5">
+                  Ходоодны хямрал
+                </option>
+                <option data-tokens="Хоолойнд толбо" value="6">
+                  Хоолойнд толбо
+                </option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+                <option data-tokens="Турах" value="3">Турах</option>
+                <option data-tokens="Нүдний хонхорхой" value="3">
+                  Нүдний хонхорхой
+                </option>
+                <option data-tokens="Ханиалгах" value="4">Ханиалгах</option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Мөчний сул дорой байдал" value="7">
+                  Мөчний сул дорой байдал
+                </option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Хүзүү өвдөх" value="5">Хүзүү өвдөх</option>
+                <option data-tokens="Ядаргаа" value="4">Ядаргаа</option>
+                <option data-tokens="Үений өвдөлт" value="3">
+                  Үений өвдөлт
+                </option>
+                <option
+                  data-tokens="Гэдэсний хөдөлгөөний үеийн өвдөлт"
+                  value="5"
+                >
+                  Гэдэсний хөдөлгөөний үеийн өвдөлт
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Базлалт" value="4">Базлалт</option>
+                <option data-tokens="Жин нэмэх" value="3">Жин нэмэх</option>
+                <option data-tokens="Хүзүү хөших" value="4">Хүзүү хөших</option>
+                <option data-tokens="Идээт батга" value="2">Идээт батга</option>
+                <option data-tokens="Давсагны тааламжгүй байдал" value="4">
+                  Давсагны тааламжгүй байдал
+                </option>
+                <option data-tokens="Зангилааны арьсны тууралт" value="4">
+                  Зангилааны арьсны тууралт
+                </option>
+                <option data-tokens="Хэлний шарх" value="4">Хэлний шарх</option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Тайван бус байдал" value="5">
+                  Тайван бус байдал
+                </option>
+                <option data-tokens="Шингэн алдалт" value="4">
+                  Шингэн алдалт
+                </option>
+                <option data-tokens="Толгой эргэх" value="4">
+                  Толгой эргэх
+                </option>
+                <option data-tokens="Биеийн нэг тал сул дорой байдал" value="4">
+                  Биеийн нэг тал сул дорой байдал
+                </option>
+                <option data-tokens="Унтамхай байдал" value="2">
+                  Унтамхай байдал
+                </option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Хэвлийн өвдөлт" value="4">
+                  Хэвлийн өвдөлт
+                </option>
+                <option data-tokens="Шулуун гэдсээр өвдөх" value="6">
+                  Шулуун гэдсээр өвдөх
+                </option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Хөхөрсөн" value="4">Хөхөрсөн</option>
+                <option data-tokens="Гар хөл хүйтэн" value="5">
+                  Гар хөл хүйтэн
+                </option>
+                <option data-tokens="Сэтгэлийн өөрчлөлт" value="3">
+                  Сэтгэлийн өөрчлөлт
+                </option>
+                <option data-tokens="Түгшүүр" value="4">Түгшүүр</option>
+                <option data-tokens="Өвдөгний өвдөлт" value="3">
+                  Өвдөгний өвдөлт
+                </option>
+                <option data-tokens="Үе хавдах" value="5">Үе хавдах</option>
+                <option data-tokens="Хар батга" value="2">Хар батга</option>
+                <option data-tokens="Шээсний эвгүй үнэр" value="5">
+                  Шээсний эвгүй үнэр
+                </option>
+                <option data-tokens="Арьс хальслах" value="3">
+                  Арьс хальслах
+                </option>
+                <option data-tokens="Цэврүүтэх" value="4">Цэврүүтэх</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 3</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_3"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Бөөлжих" value="5">Бөөлжих</option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Ходоодны өвдөлт" value="5">
+                  Ходоодны өвдөлт
+                </option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Толгой эргэх" value="4">
+                  Толгой эргэх
+                </option>
+                <option data-tokens="Биеийн нэг тал сул дорой байдал" value="4">
+                  Биеийн нэг тал сул дорой байдал
+                </option>
+                <option data-tokens="Ядаргаа" value="4">Ядаргаа</option>
+                <option data-tokens="Турах" value="3">Турах</option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Үений өвдөлт" value="3">
+                  Үений өвдөлт
+                </option>
+                <option data-tokens="Ханиалгах" value="4">Ханиалгах</option>
+                <option data-tokens="Шулуун гэдсээр өвдөх" value="6">
+                  Шулуун гэдсээр өвдөх
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Хөхөрсөн" value="4">Хөхөрсөн</option>
+                <option data-tokens="Гар хөл хүйтэн" value="5">
+                  Гар хөл хүйтэн
+                </option>
+                <option data-tokens="Өвдөгний өвдөлт" value="3">
+                  Өвдөгний өвдөлт
+                </option>
+                <option data-tokens="Хар батга" value="2">Хар батга</option>
+                <option data-tokens="Үе хавдах" value="5">Үе хавдах</option>
+                <option data-tokens="Шээсний эвгүй үнэр" value="5">
+                  Шээсний эвгүй үнэр
+                </option>
+                <option data-tokens="Арьс хальслах" value="3">
+                  Арьс хальслах
+                </option>
+                <option data-tokens="Цэврүүтэх" value="4">Цэврүүтэх</option>
+                <option data-tokens="Арьсны тууралт" value="4">
+                  Арьсны тууралт
+                </option>
+                <option data-tokens="Дискромик засварууд" value="6">
+                  Дискромик засварууд
+                </option>
+                <option data-tokens="Жихүүдэс хүрэх" value="3">
+                  Жихүүдэс хүрэх
+                </option>
+                <option data-tokens="Нулимс их гарах" value="4">
+                  Нулимс их гарах
+                </option>
+                <option data-tokens="Хэл дээрх шарх" value="4">
+                  Хэл дээрх шарх
+                </option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Шатаж байгаа мэт шээс гарах" value="6">
+                  Шатаж байгаа мэт шээс гарах
+                </option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Тайван бус байдал" value="5">
+                  Тайван бус байдал
+                </option>
+                <option data-tokens="Унтамхай байдал" value="2">
+                  Унтамхай байдал
+                </option>
+                <option data-tokens="Шингэн алдалт" value="4">
+                  Шингэн алдалт
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Тэнцвэрийн алдагдал" value="4">
+                  Тэнцвэрийн алдагдал
+                </option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Бүдэг болон гажиг хараа" value="5">
+                  Бүдэг болон гажиг хараа
+                </option>
+                <option data-tokens="Хүзүү өвдөх" value="5">Хүзүү өвдөх</option>
+                <option data-tokens="Мэдрэхүйн өөрчлөлт" value="2">
+                  Мэдрэхүйн өөрчлөлт
+                </option>
+                <option data-tokens="Харанхуй шээс" value="4">
+                  Харанхуй шээс
+                </option>
+                <option data-tokens="Цустай баас" value="5">Цустай баас</option>
+                <option data-tokens="Таргалалт" value="4">Таргалалт</option>
+                <option data-tokens="Сэтгэлийн өөрчлөлт" value="3">
+                  Сэтгэлийн өөрчлөлт
+                </option>
+                <option data-tokens="Түгшүүр" value="4">Түгшүүр</option>
+                <option data-tokens="Түнхний үений өвдөлт" value="2">
+                  Түнхний үений өвдөлт
+                </option>
+                <option data-tokens="Хөдөлгөөний хөшүүн байдал" value="5">
+                  Хөдөлгөөний хөшүүн байдал
+                </option>
+                <option data-tokens="Эргэлдэх хөдөлгөөн" value="6">
+                  Эргэлдэх хөдөлгөөн
+                </option>
+                <option data-tokens="Тасралтгүй шээх мэдрэмж" value="6">
+                  Тасралтгүй шээх мэдрэмж
+                </option>
+                <option data-tokens="Мөнгө шиг тоосжилт" value="2">
+                  Мөнгө шиг тоосжилт
+                </option>
+                <option data-tokens="Хамрын ойролцоо улаан шархлаа" value="2">
+                  Хамрын ойролцоо улаан шархлаа
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 4</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_4"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Нулимс их гарах" value="4">
+                  Нулимс их гарах
+                </option>
+                <option data-tokens="Бөөлжих" value="5">Бөөлжих</option>
+                <option data-tokens="Ханиалгах" value="4">Ханиалгах</option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Шатаж буй шээс ялгаруулах" value="6">
+                  Шатаж буй шээс ялгаруулах
+                </option>
+                <option data-tokens="Дискромик засварууд" value="6">
+                  Дискромик засварууд
+                </option>
+                <option data-tokens="Шээсэнд ялгарах толбо" value="6">
+                  Шээсэнд ялгарах толбо
+                </option>
+                <option data-tokens="Хий гаргах" value="5">Хий гаргах</option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Унтамхай байдал" value="2">
+                  Унтамхай байдал
+                </option>
+                <option data-tokens="Сахарын хэмжээ тогтворгүй'" value="5">
+                  Сахарын хэмжээ тогтворгүй
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Гэр бүлийн түүх" value="5">
+                  Гэр бүлийн түүх
+                </option>
+                <option data-tokens="Тэнцвэрийн алдагдал" value="4">
+                  Тэнцвэрийн алдагдал
+                </option>
+                <option data-tokens="Төвлөрөхгүй байх" value="3">
+                  Төвлөрөхгүй байх
+                </option>
+                <option
+                  data-tokens="Бүдэг болон гажигтай алсын хараа"
+                  value="5"
+                >
+                  Бүдэг болон гажигтай алсын хараа
+                </option>
+                <option data-tokens="Хэт их өлсгөлөн" value="4">
+                  Хэт их өлсгөлөн
+                </option>
+                <option data-tokens="Толгой эргэх" value="4">
+                  Толгой эргэх
+                </option>
+                <option data-tokens="Турах" value="3">Турах</option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Ядаргаа" value="4">Ядаргаа</option>
+                <option data-tokens="Харанхуй шээс" value="4">
+                  Харанхуй шээс
+                </option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Хэвлийн суналт" value="4">
+                  Хэвлийн суналт
+                </option>
+                <option data-tokens="Цустай баас" value="5">Цустай баас</option>
+                <option data-tokens="Хошногны амсарт цочрох" value="6">
+                  Хошногны амсарт цочрох
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Таргалалт" value="4">Таргалалт</option>
+                <option data-tokens="Хавдсан хөл" value="5">Хавдсан хөл</option>
+                <option data-tokens="Сэтгэл санааны өөрчлөлт" value="3">
+                  Сэтгэл санааны өөрчлөлт
+                </option>
+                <option data-tokens="Тайван бус байдал" value="5">
+                  Тайван бус байдал
+                </option>
+                <option data-tokens="Үений өвдөлт" value="3">
+                  Үений өвдөлт
+                </option>
+                <option data-tokens="Үе хавагнах" value="5">Үе хавагнах</option>
+                <option data-tokens="Хөдөлгөөний хөшүүн байдал" value="5">
+                  Хөдөлгөөний хөшүүн байдал
+                </option>
+                <option data-tokens="Өвдөлттэй алхах" value="5">
+                  Өвдөлттэй алхах
+                </option>
+                <option data-tokens="Эргэлдэх хөдөлгөөн" value="6">
+                  Эргэлдэх хөдөлгөөн
+                </option>
+                <option data-tokens="Мөнгө шиг тоосжилт" value="2">
+                  Мөнгө шиг тоосжилт
+                </option>
+                <option data-tokens="Шаргал царцдас" value="3">
+                  Шаргал царцдас
+                </option>
+                <option data-tokens="Тасралтгүй шээх мэдрэмж" value="6">
+                  Тасралтгүй шээх мэдрэмж
+                </option>
+                <option data-tokens="Мэдрэхүйн өөрчлөлт" value="2">
+                  Мэдрэхүйн өөрчлөлт
+                </option>
+                <option data-tokens="Гэр бүлээс гадуурх харилцагчид" value="5">
+                  Гэр бүлээс гадуурх харилцагчид
+                </option>
+                <option data-tokens="Ходоодны хаван" value="7">
+                  Ходоодны хаван
+                </option>
+                <option data-tokens="Хумсны жижиг хонхорхой" value="2">
+                  Хумсны жижиг хонхорхой
+                </option>
+                <option data-tokens="Ходоодны хаван" value="7">
+                  Ходоодны хаван
+                </option>
+                <option data-tokens="Хамрын ойролцоо улаан шархлаа" value="2">
+                  Хамрын ойролцоо улаан шархлаа
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 5</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_5"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+
+                <option data-tokens="Ханиалгах" value="4">Ханиалгах</option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Дотор загатнах" value="4">
+                  Дотор загатнах
+                </option>
+                <option
+                  data-tokens="Бүдэг болон гажигтай алсын хараа"
+                  value="5"
+                >
+                  Бүдэг болон гажигтай алсын хараа
+                </option>
+                <option data-tokens="Гэр бүлийн түүх" value="5">
+                  Гэр бүлийн түүх
+                </option>
+                <option data-tokens="Салст цэр" value="4">Салст цэр</option>
+                <option data-tokens="Хэт их өлсгөлөн" value="4">
+                  Хэт их өлсгөлөн
+                </option>
+                <option data-tokens="Хүзүү хөших" value="4">Хүзүү хөших</option>
+                <option data-tokens="Тэнцвэрийн алдагдал" value="4">
+                  Тэнцвэрийн алдагдал
+                </option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Ядаргаа" value="4">Ядаргаа</option>
+                <option data-tokens="Харанхуй шээс" value="4">
+                  Харанхуй шээс
+                </option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Архины хэрэглээний түүх" value="5">
+                  Архины хэрэглээний түүх
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Унтамхай байдал" value="2">
+                  Унтамхай байдал
+                </option>
+                <option data-tokens="Толгой эргэх" value="4">
+                  Толгой эргэх
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Өвдөлттэй алхах" value="5">
+                  Өвдөлттэй алхах
+                </option>
+                <option data-tokens="Тогтворгүй байдал" value="4">
+                  Тогтворгүй байдал
+                </option>
+                <option data-tokens="Үрэвсэлт хумс" value="2">
+                  Үрэвсэлт хумс
+                </option>
+                <option data-tokens="Шээсэнд ялгарах толбо" value="6">
+                  Шээсэнд ялгарах толбо
+                </option>
+                <option data-tokens="Хий гаргах" value="5">Хий гаргах</option>
+                <option data-tokens="Сахарын хэмжээ тогтворгүй'" value="5">
+                  Сахарын хэмжээ тогтворгүй
+                </option>
+                <option data-tokens="Төвлөрөхгүй байх" value="3">
+                  Төвлөрөхгүй байх
+                </option>
+                <option data-tokens="Хэвлийн суналт" value="4">
+                  Хэвлийн суналт
+                </option>
+                <option data-tokens="Хошногны амсарт цочрох" value="6">
+                  Хошногны амсарт цочрох
+                </option>
+                <option data-tokens="Хавдсан хөл" value="5">Хавдсан хөл</option>
+                <option data-tokens="Хавдсан судас" value="5">
+                  Хавдсан судас
+                </option>
+                <option data-tokens="Үе хавагнах" value="5">Үе хавагнах</option>
+                <option data-tokens="Хумсны жижиг хохорхой" value="2">
+                  Хумсны жижиг хохорхой
+                </option>
+                <option data-tokens="Шаргал царцдас" value="3">
+                  Шаргал царцдас
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 6</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_6"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option
+                  data-tokens="Бүдэг болон гажигтай алсын хараа"
+                  value="5"
+                >
+                  Бүдэг болон гажигтай алсын хараа
+                </option>
+                <option data-tokens="Таргалалт" value="4">Таргалалт</option>
+                <option data-tokens="Хүзүү хөших" value="4">Хүзүү хөших</option>
+                <option data-tokens="Сэтгэлийн хямрал" value="3">
+                  Сэтгэлийн хямрал
+                </option>
+                <option data-tokens="Шаргал арьс" value="3">Шаргал арьс</option>
+                <option data-tokens="Харанхуй шээс" value="4">
+                  Харанхуй шээс
+                </option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Өтгөн хаталт" value="4">
+                  Өтгөн хаталт
+                </option>
+                <option data-tokens="Өндөр халуун" value="7">
+                  Өндөр халуун
+                </option>
+                <option data-tokens="Шингэний хэт ачаалал" value="4">
+                  Шингэний хэт ачаалал
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Тугал дээрх тод судлууд" value="6">
+                  Тугал дээрх тод судлууд
+                </option>
+                <option data-tokens="Толгой эргэх" value="4">
+                  Толгой эргэх
+                </option>
+                <option data-tokens="Хавдсан нүүр, нүд" value="5">
+                  Хавдсан нүүр, нүд
+                </option>
+                <option data-tokens="Хурдан зүрхний цохилт" value="5">
+                  Хурдан зүрхний цохилт
+                </option>
+                <option data-tokens="Дотор загатнах" value="4">
+                  Дотор загатнах
+                </option>
+                <option data-tokens="Салст цэр" value="4">Салст цэр</option>
+                <option data-tokens="Гэр бүлийн түүх" value="5">
+                  Гэр бүлийн түүх
+                </option>
+                <option data-tokens="Архины хэрэглээний түүх" value="5">
+                  Архины хэрэглээний түүх
+                </option>
+                <option data-tokens="Хавдсан судас" value="5">
+                  Хавдсан судас
+                </option>
+                <option data-tokens="Өвдөлттэй алхах" value="5">
+                  Өвдөлттэй алхах
+                </option>
+                <option data-tokens="Тогтворгүй байдал" value="4">
+                  Тогтворгүй байдал
+                </option>
+                <option data-tokens="Үрэвсэлт хумс" value="2">
+                  Үрэвсэлт хумс
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 7</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_7"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Сэтгэлийн хямрал" value="3">
+                  Сэтгэлийн хямрал
+                </option>
+                <option data-tokens="Хэт их өлсгөлөн" value="4">
+                  Хэт их өлсгөлөн
+                </option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Хөнгөн халууралт" value="5">
+                  Хөнгөн халууралт
+                </option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Шээс шарлах" value="4">Шээс шарлах</option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Цэр" value="5">Цэр</option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Томорсон бамбай" value="6">
+                  Томорсон бамбай
+                </option>
+                <option data-tokens="Хурдан зүрхний цохилт" value="5">
+                  Хурдан зүрхний цохилт
+                </option>
+                <option data-tokens="Харанхуй шээс" value="4">
+                  Харанхуй шээс
+                </option>
+                <option data-tokens="Таргалалт" value="4">Таргалалт</option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Толгой өвдөх" value="3">
+                  Толгой өвдөх
+                </option>
+                <option data-tokens="Өтгөн хаталт" value="4">
+                  Өтгөн хаталт
+                </option>
+                <option data-tokens="Амьсгал давчдах" value="4">
+                  Амьсгал давчдах
+                </option>
+                <option data-tokens="Шингэний хэт ачаалал" value="4">
+                  Шингэний хэт ачаалал
+                </option>
+                <option data-tokens="Тугал дээрх тод судлууд" value="6">
+                  Тугал дээрх тод судлууд
+                </option>
+                <option data-tokens="Хавдсан нүүр, нүд" value="5">
+                  Хавдсан нүүр, нүд
+                </option>
+                <option
+                  data-tokens="Бүдэг болон гажигтай алсын хараа"
+                  value="5"
+                >
+                  Бүдэг болон гажигтай алсын хараа
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 8</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_8"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Уруул хатах, хорсох" value="4">
+                  Уруул хатах, хорсох
+                </option>
+                <option data-tokens="Хоолны дуршил нэмэгдэх" value="5">
+                  Хоолны дуршил нэмэгдэх
+                </option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Хөнгөн халууралт" value="5">
+                  Хөнгөн халууралт
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Цэр" value="5">Цэр</option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Хэврэг хумс" value="5">Хэврэг хумс</option>
+
+                <option data-tokens="Булчингийн сулрал" value="2">
+                  Булчингийн сулрал
+                </option>
+                <option data-tokens="Харааны Бие сулрах" value="3">
+                  Харааны Бие сулрах
+                </option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Дотор муухайрах" value="5">
+                  Дотор муухайрах
+                </option>
+                <option data-tokens="Хөлрөх" value="3">Хөлрөх</option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Хэт их өлсгөлөн" value="4">
+                  Хэт их өлсгөлөн
+                </option>
+                <option data-tokens="Шээс шарлах" value="4">Шээс шарлах</option>
+                <option data-tokens="Томорсон бамбай" value="6">
+                  Томорсон бамбай
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 9</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_9"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Полиури" value="4">Полиури</option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Хоолны дуршилгүй болох" value="4">
+                  Хоолны дуршилгүй болох
+                </option>
+                <option data-tokens="Нүдний цаадах өвдөлт" value="4">
+                  Нүдний цаадах өвдөлт
+                </option>
+                <option data-tokens="Хортой харагдах" value="5">
+                  Хортой харагдах
+                </option>
+                <option data-tokens="Суулгалт" value="6">Суулгалт</option>
+                <option data-tokens="Хөнгөн халууралт" value="5">
+                  Хөнгөн халууралт
+                </option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Хоолой цочрол" value="4">
+                  Хоолой цочрол
+                </option>
+                <option data-tokens="Цэр" value="5">Цэр</option>
+                <option data-tokens="Хурдан зүрхний цохилт" value="5">
+                  Хурдан зүрхний цохилт
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Хавдсан мөч" value="5">Хавдсан мөч</option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Яриа бүдгэрэх" value="4">
+                  Яриа бүдгэрэх
+                </option>
+                <option data-tokens="Хоолны дуршил нэмэгдэх" value="5">
+                  Хоолны дуршил нэмэгдэх
+                </option>
+                <option data-tokens="Харааны Бие сулрах" value="3">
+                  Харааны Бие сулрах
+                </option>
+                <option data-tokens="Хэврэг хумс" value="5">Хэврэг хумс</option>
+                <option data-tokens="Булчингийн сулрал" value="2">
+                  Булчингийн сулрал
+                </option>
+                <option data-tokens="Уруул хатах, хорсох" value="4">
+                  Уруул хатах, хорсох
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 10</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_10"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Биений улаан толбо" value="3">
+                  Биений улаан толбо
+                </option>
+                <option data-tokens="Нуруу өвдөлт" value="3">
+                  Нуруу өвдөлт
+                </option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Элэгний цочмог дутагдал" value="6">
+                  Элэгний цочмог дутагдал
+                </option>
+                <option data-tokens="Цус сэлбэх хүлээн авах" value="5">
+                  Цус сэлбэх хүлээн авах
+                </option>
+                <option data-tokens="Нүдний улаан" value="5">
+                  Нүдний улаан
+                </option>
+                <option data-tokens="Зэвэрсэн цэр" value="4">
+                  Зэвэрсэн цэр
+                </option>
+                <option data-tokens="Сэтгэлийн хямрал" value="3">
+                  Сэтгэлийн хямрал
+                </option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Сарын тэмдэг хэвийн бус" value="6">
+                  Сарын тэмдэг хэвийн бус
+                </option>
+                <option data-tokens="Полиури" value="4">Полиури</option>
+                <option data-tokens="Нүдний цаадах өвдөлт" value="4">
+                  Нүдний цаадах өвдөлт
+                </option>
+                <option data-tokens="Хэвлийн хэсгээр өвдөх" value="4">
+                  Хэвлийн хэсгээр өвдөх
+                </option>
+                <option data-tokens="Хортой харагдах" value="5">
+                  Хортой харагдах
+                </option>
+                <option data-tokens="Хөнгөн халууралт" value="5">
+                  Хөнгөн халууралт
+                </option>
+                <option data-tokens="Хоолой цочрол" value="4">
+                  Хоолой цочрол
+                </option>
+                <option data-tokens="Хурдан зүрхний цохилт" value="5">
+                  Хурдан зүрхний цохилт
+                </option>
+                <option data-tokens="Хавдсан мөч" value="5">Хавдсан мөч</option>
+                <option data-tokens="Яриа бүдгэрэх" value="4">
+                  Яриа бүдгэрэх
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 11</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_11"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Биений улаан толбо" value="3">
+                  Биений улаан толбо
+                </option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Кома" value="7">Кома</option>
+                <option data-tokens="Синусын даралт" value="4">
+                  Синусын даралт
+                </option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Сарын тэмдэг хэвийн бус" value="6">
+                  Сарын тэмдэг хэвийн бус
+                </option>
+                <option data-tokens="Зүрх дэлсэх" value="4">Зүрх дэлсэх</option>
+                <option data-tokens="Нуруу өвдөлт" value="3">
+                  Нуруу өвдөлт
+                </option>
+                <option data-tokens="Гэдэсний өвдөлт" value="4">
+                  Гэдэсний өвдөлт
+                </option>
+                <option data-tokens="Цус сэлбэх хүлээн авах" value="5">
+                  Цус сэлбэх хүлээн авах
+                </option>
+                <option data-tokens="Ариутгаагүй тариа хийлгэх" value="2">
+                  Ариутгаагүй тариа хийлгэх
+                </option>
+                <option data-tokens="Элэгний цочмог дутагдал" value="6">
+                  Элэгний цочмог дутагдал
+                </option>
+                <option data-tokens="Нүд шарлах" value="4">Нүд шарлах</option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Нүдний улаан" value="5">
+                  Нүдний улаан
+                </option>
+                <option data-tokens="Зэвэрсэн цэр" value="4">
+                  Зэвэрсэн цэр
+                </option>
+                <option data-tokens="Сэтгэлийн хямрал" value="3">
+                  Сэтгэлийн хямрал
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 12</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_12"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Бие сулрах" value="6">Бие сулрах</option>
+                <option data-tokens="Хамар гоожих" value="5">
+                  Хамраас гоожих
+                </option>
+                <option data-tokens="Ариутгаагүй тариа хийлгэх" value="2">
+                  Ариутгаагүй тариа хийлгэх
+                </option>
+                <option data-tokens="Ходоодны цус алдалт" value="6">
+                  Ходоодны цус алдалт
+                </option>
+                <option data-tokens="Кома" value="7">Кома</option>
+                <option data-tokens="Тунгалгийн зангилаанууд хавдсан" value="6">
+                  Тунгалгийн зангилаанууд хавдсан
+                </option>
+                <option data-tokens="Синусын даралт" value="4">
+                  Синусын даралт
+                </option>
+                <option data-tokens="Цочромтгой" value="2">Цочромтгой</option>
+                <option data-tokens="Сарын тэмдэг хэвийн бус" value="6">
+                  Сарын тэмдэг хэвийн бус
+                </option>
+                <option data-tokens="Зүрх дэлсэх" value="4">Зүрх дэлсэх</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 13</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_13"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Биений улаан толбо" value="3">
+                  Биений улаан толбо
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Цэр" value="5">Цэр</option>
+                <option data-tokens="Түгжрэл" value="5">Түгжрэл</option>
+                <option data-tokens="Ходоодны цус алдалт" value="6">
+                  Ходоодны цус алдалт
+                </option>
+                <option data-tokens="Тахир дутуу" value="6">Тахир дутуу</option>
+                <option data-tokens="Хамар гоожих" value="5">
+                  Хамраас гоожих
+                </option>
+                <option data-tokens="Сарын тэмдэг хэвийн бус" value="6">
+                  Сарын тэмдэг хэвийн бус
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 14</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_14"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Биений улаан толбо" value="3">
+                  Биений улаан толбо
+                </option>
+                <option data-tokens="Цэр" value="5">Цэр</option>
+                <option data-tokens="Түгжрэл" value="5">Түгжрэл</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 15</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_15"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Цээж өвдөх" value="7">Цээж өвдөх</option>
+                <option data-tokens="Цэрний цус" value="5">Цэрний цус</option>
+                <option data-tokens="Үнэр алдагдах" value="3">
+                  Үнэр алдагдах
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 16</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_16"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+                <option data-tokens="Цэрний цус" value="5">Цэрний цус</option>
+                <option data-tokens="Үнэр алдагдах" value="3">
+                  Үнэр алдагдах
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="disabledSelect" class="form-label"
+                >Шинж тэмдэг 17</label
+              >
+
+              <select
+                class="form-control selectpicker"
+                id="select-country"
+                data-live-search="true"
+                name="Symptom_17"
+              >
+                <option
+                  data-tokens="-------------    сонголт хийх    ---------------"
+                  value="0"
+                >
+                  ------------- сонголт хийх ---------------
+                </option>
+                <option data-tokens="Булчингийн өвдөлт" value="2">
+                  Булчингийн өвдөлт
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Таамаглах</button>
+          
+          </div>
+          
+      </form>
+      <!-- Modal -->
+      <div
+      class="modal fade"
+      id="result"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="resulttitle">Үр дүн</h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="/prediction_add" method="post">
+          <div class="modal-body">
+            <!--Prediction Result-->
+            <div id="result">
+             <span> Өвчин : </span>  <textarea type="text" id="disease" name="disease" readonly > {{disease}}</textarea>
+               <br />
+              <span> Тайлбар :</span> <textarea type="text" id="tailbar" name="tailbar" readonly>{{tailbar}} </textarea>
+               <br />
+              <span>Урьдчилан сэргийлэх арга :</span> <textarea type="text" id="sergiileh" name="sergiileh" readonly>{{sergiileh}} </textarea>
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">
+              Save changes
+            </button>
+          </form>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

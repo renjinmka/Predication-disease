@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="http://localhost/ovchintaamaglah/static/prevention.ico"
+    />
+    <script
+      src="https://kit.fontawesome.com/3472e86e07.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>Өвчин таамаглах загвар</title>
+  </head>
+  <body>
+    <div id="top">
+      <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            type="button"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+          >
+            Хэрэглэгч
+          </button>
+        </li>
+      </div>
+      <div class="social">
+        <a
+          href="https://web.facebook.com/profile.php?id=100022535610217"
+          target="_blank"
+          ><i class="fa-brands fa-square-facebook fa-2x"></i
+        ></a>
+        <a href="https://www.instagram.com/lemiel01q/" target="_blank"
+          ><i class="fa-brands fa-square-instagram fa-2x"></i
+        ></a>
+        <a
+          href="https://mail.google.com/mail/u/1/#inbox?compose=DmwnWrRvxDbFFTmJbnfgBTwXJwTXcFKqvJHjxLkLbdRTkwMQfhjJlsqbjNchPNXjNQnSRxkffZBQ"
+          target="_blank"
+          ><i class="fa-sharp fa-solid fa-envelope fa-2x"></i
+        ></a>
+      </div>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-home"
+        role="tabpanel"
+        aria-labelledby="pills-home-tab"
+      >
+        <section class="vh-100">
+          <div class="container py-5 h-100">
+            <div
+              class="row d-flex justify-content-center align-items-center h-100"
+            >
+              <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem">
+                  <div class="row g-0">
+                    <div class="col-md-6 col-lg-5 d-none d-md-block">
+                      <img
+                        src="https://cdn.vectorstock.com/i/preview-1x/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.webp"
+                        alt="login form"
+                        class="img-fluid"
+                        style="border-radius: 1rem 0 0 1rem"
+                      />
+                      <!-- <h3 style="margin-left: 35%">Хэрэглэгч</h3> -->
+                      <br />
+                      <br />
+                    </div>
+                    <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                      <div class="card-body p-4 p-lg-5 text-black">
+                        <form
+                          class="mx-1 mx-md-4"
+                          action="register.php"
+                          method="post"
+                          onsubmit="return validatePassword()"
+                        >
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example3c"
+                                >Хэрэглэгч нэр</label
+                              >
+                              <input
+                                type="text"
+                                id="form3Example3c"
+                                class="form-control"
+                                name="user_name"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example4c"
+                                >Шинэ нууц үг</label
+                              >
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="new_password"
+                                name="new_password"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example4cd"
+                                >Шинэ нууц үг дахин оруулах</label
+                              >
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="new_password_confirm"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div
+                            class="form-check d-flex justify-content-center mb-5"
+                          >
+                            <input
+                              class="form-check-input me-2"
+                              type="checkbox"
+                              value=""
+                              id="form2Example3c"
+                            />
+                            <label class="form-check-label" for="form2Example3">
+                              Зөвшөөрч байна
+                              <a href="#!" style="color: #15a376 !important"
+                                >Үйлчилгээний нөхцөл</a
+                              >
+                            </label>
+                          </div>
+
+                          <div
+                            class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
+                          >
+                            <button
+                              type="submit"
+                              class="btn btn-primary btn-lg"
+                            >
+                              Бүртгүүлэх
+                            </button>
+                          </div>
+                        </form>
+                        <div
+                          style="
+                            text-align: center !important;
+                            color: #15a376 !important;
+                          "
+                        >
+                          <a href="login.html" style="color: #15a376 !important"
+                            >Нэвтрэх</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+  <script>
+    var new_password = document.getElementById("new_password"),
+      new_password_confirm = document.getElementById("new_password_confirm");
+
+    function validatePassword() {
+      if (new_password.value != new_password_confirm.value) {
+        new_password_confirm.setCustomValidity(
+          "Шинэ нууц үгтэй таарахгүй байна"
+        );
+      } else {
+        new_password_confirm.setCustomValidity("");
+      }
+    }
+
+    new_password.onchange = validatePassword;
+    new_password_confirm.onkeyup = validatePassword;
+
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match("#")) {
+      $('.nav-tabs a[href="#' + url.split("#")[1] + '"]').tab("show");
+    }
+
+    // Change hash for page-reload
+    $(".nav-tabs a").on("shown.bs.tab", function (e) {
+      window.location.hash = e.target.hash;
+    });
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+</html>
