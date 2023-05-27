@@ -5,7 +5,6 @@ from flask import Flask, request, render_template, redirect, url_for
 import numpy as np
 import re
 import pickle
-import translators.server as tss
 from db_connection import add_prediction, get_data
 
 app = Flask(__name__)
